@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="multipleback.css" />
+    <link rel="stylesheet" media="screen and (max-device-width: 700px;max-device-height:560px)" href="main_1.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="/js/my.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        @@media only screen and (min-width: 700px){
+           /* body {
+                background: black;
+            }*/
+        }
+        @@media only screen and (min-height: 560px) {
+            /* body {
+                background: black;
+            }*/
+        }
+           
+                
+        
+
+        * {
+            box-sizing: border-box;
+        }
+
+        table {
+            border-collapse: collapse;
+            text-align: left;
+            width: 100%;
+            height: 600px;
+            margin: auto;
+            empty-cells: show;
+        }
+
+        .wrapper {
+            cursor: not-allowed;
+        }
+
+        th, td {
+            border: 1px solid #cecfd5;
+            padding: 10px 15px;
+            /* height: 25px;
+            max-height: 50px;*/
+            /*text-align: left;*/
+            width: 25%;
+            font-weight: normal;
+            vertical-align: top;
+        }
+
+            th > div {
+                max-height: 50px;
+                overflow-y: scroll;
+                overflow-x: hidden;
+                text-align: left;
+            }
+
+        body {
+            margin: 0;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+            .navbar a {
+                float: left;
+                font-size: 16px;
+                color: black;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+            .dropdown .dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: black;
+                padding: 14px 16px;
+                background-color: inherit;
+                font: inherit;
+                margin: 0;
+            }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            width:35%;
+            /*left: 0;*/
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content .header {
+                background: red;
+                padding: 16px;
+                color: white;
+            }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Create three equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            height: 200px;
+        }
+
+            .column a {
+                float: none;
+                color: black;
+                padding: 16px;
+                text-decoration: none;
+                display: block;
+                text-align: center;
+                width: max-content;
+            }
+
+                .column a:hover {
+                    background-color: #ddd;
+                }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .partialViewContainer {
+            padding-top: 2px;
+        }
+
+    </style>
+</head>
+<body>
+    <table border="1" style="width:100%;height:700Px; font-family:Arial">
+        <tr>
+            <td colspan="3">
+                <div class="navbar">
+
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            Home
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <div class="row">
+                                <div class="column">
+                                    <a href="#">Menu Item 1</a>
+                                    <a href="#">Menu Item 2</a>
+                                    <a href="#">Menu Item 3</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            File
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <div class="row">
+                                <div class="column">
+                                    <a href="#">Menu Item 1</a>
+                                    <a href="#">Menu Item 2</a>
+                                    <a href="#">Menu Item 3</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            Edit
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <div class="row">
+                                <div class="column">
+                                    <a href="#">Menu Item 1</a>
+                                    <a href="#">Menu Item 2</a>
+                                    <a href="#">Menu Item 3</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            View
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <div class="row">
+                                <div class="column">
+                                    <a href="#">Menu Item 1</a>
+                                    <a href="#">Menu Item 2</a>
+                                    <a href="#">Menu Item 3</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+
+            <td style="width: 20%; height: 600Px; ">
+                <br>
+                <ui id="selectedvalue">
+                    <li> <a href="#" id="Selection1" style="font-size:x-large">Selection 1</a></li>
+                    <li><a href="#" id="Selection2" style="font-size: x-large ">Selection 2</a></li>
+                    <li><a href="#" id="Selection3" style="font-size: x-large ">Selection 3</a></li>
+                </ui>
+
+            </td>
+
+            <td style="width: 60%; height: 500Px">
+                
+                <div id="partialViewContainer">
+                    @Html.Action("Selection", "Selection")
+               </div>
+
+        @RenderBody()
+        </td>
+        <td style="width: 30%; height: 500Px;text-align:left">
+            <div id="ConsolePannel" style="overflow-y: auto; max-height: 600px;" class="wrapper">
+
+            </div>
+        </td>
+
+        </tr>
+
+        <tr>
+
+           
+            <td colspan="3" font-size:x-small align="center">
+                <div style="text-align: center;">
+                    <input type="submit" id="btnCancel" name="Submit" value="Cancel" style="height: 50px; width: 250px; background: Red;" />
+                    <input align="center" type="submit" id="btnRunTest" name="Submit" value="RunTest" style="height: 50px; width: 250px; background: green;" />
+                    <input class="text-right" align="right" type="submit" id="btnClearResults" name="Submit" value="ClearResults" style="height: 50px; width: 250px; background: yellow; " />
+                </div>
+            </td>
+        <tr style="width: 100%; height: 0.5Px;text-align:left;font-size:xx-small">
+            <td colspan="3">
+                <h3>Active</h3>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+<script>
+    $('li').click(function (e) {
+
+        console.log(e.target.innerHTML);
+    })
+    $('#Selection1').on('click', function () {
+        var Selection1 = document.querySelector('#Selection1').getAttribute('id');
+
+        $.ajax({
+            type: "post",
+            url: '/Selection/Selection1',
+            data: { "Selection1": Selection1 },
+            success: function (data, textStatus, jqXHR) {
+                $('#partialViewContainer').html(data);
+            }
+
+        });
+        $.ajax({
+            type: "post",
+            url: '/Selection/ConsolePannel',
+            data: { "Selection": Selection1 },
+            success: function (data, textStatus, jqXHR) {
+                $('#ConsolePannel').append("select"+data + "<br/>");
+            }
+        });
+    });
+    $('#Selection2').on('click', function () {
+        var Selection2 = document.querySelector('#Selection2').getAttribute('id');
+        $.ajax({
+            type: "post",
+            url: '/Selection/Selection2',
+            data: { "Selection2": Selection2 },
+            success: function (data, textStatus, jqXHR) {
+                $('#partialViewContainer').html(data);
+            }
+        });
+        $.ajax({
+            type: "post",
+            url: '/Selection/ConsolePannel',
+            data: { "Selection": Selection2 },
+            success: function (data, textStatus, jqXHR) {
+                $('#ConsolePannel').append("select" +data + "<br/>");
+            }
+        });
+    });
+    $('#Selection3').on('click', function () {
+        var Selection3 = document.querySelector('#Selection3').getAttribute('id');
+        $.ajax({
+            type: "post",
+            url: '/Selection/Selection3',
+            data: { "Selection3": Selection3 },
+            success: function (data, textStatus, jqXHR) {
+                $('#partialViewContainer').html(data);
+            }
+        });
+        $.ajax({
+            type: "post",
+            url: '/Selection/ConsolePannel',
+            data: { "Selection": Selection3 },
+            success: function (data, textStatus, jqXHR) {
+                $('#ConsolePannel').append("select" +data + "<br/>");
+            }
+        });
+    });
+
+    $("#btnCancel").click(function () {
+        alert('You clicked Cancel!');
+        var Selection = document.querySelector('#btnCancel').getAttribute('value');
+        
+        $.ajax({
+            type: "post",
+            url: '/Selection/ConsolePannel',
+            data: { "Selection": Selection },
+            success: function (data, textStatus, jqXHR) {
+                $('#ConsolePannel').append("press"+data + "<br/>");
+            }
+        });
+        $.ajax({
+            type: "post",
+            url: '/Selection/ConsolePannel',
+            data: { "Selection": Selection },
+            success: function (data, textStatus, jqXHR) {
+                $('#status').html(data);
+
+            }
+        });
+       /* window.close();*/
+    });
+    $("#btnRunTest").click(function () {
+        alert('You clicked RunTest!');
+        var Selection = document.querySelector('#btnRunTest').getAttribute('value');
+        $.ajax({
+            type: "post",
+            url: '/Selection/ConsolePannel',
+            data: { "Selection": Selection },
+            success: function (data, textStatus, jqXHR) {
+                $('#ConsolePannel').append("press"+data + "<br/>");
+            }
+        });
+        $.ajax({
+            type: "post",
+            url: '/Selection/ConsolePannel',
+            data: { "Selection": Selection },
+            success: function (data, textStatus, jqXHR) {
+                $('#status').html(data);
+
+            }
+        });
+       });
+    $("#btnClearResults").click(function () {
+        alert('You clicked ClearResults!');
+        var Selection = document.querySelector('#btnClearResults').getAttribute('value');
+        $.ajax({
+            type: "post",
+            url: '/Selection/ConsolePannel',
+            data: { "Selection": Selection },
+            success: function (data, textStatus, jqXHR) {
+                $('#ConsolePannel').append("press"+data + "<br/>");
+            }
+        });
+        $.ajax({
+            type: "post",
+            url: '/Selection/ConsolePannel',
+            data: { "Selection": Selection },
+            success: function (data, textStatus, jqXHR) {
+                $('#status').html(data);
+
+            }
+        });
+        
+    });
+
+</script>
